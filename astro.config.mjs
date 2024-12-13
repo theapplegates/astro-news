@@ -12,8 +12,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: Site.url,
-  base: Site.basePath,
+  site: https://astro-news.paulapplegate.com,
+  base: /,
   markdown: {
     remarkPlugins: [readingTime, modifiedTime],
   },
