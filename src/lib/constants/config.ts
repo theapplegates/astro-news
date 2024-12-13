@@ -3,9 +3,9 @@ import type { Link } from "../types"
 export const Site = {
   title: "Astro News",
   description: "A news website built with Astro",
-  author: "Mohammad Rahmani",
-  url: "https://astro-news-six.vercel.app",
-  github: "https://github.com/Mrahmani71/astro-news",
+  author: "Paul Applegate",
+  url: "https://astro-news.paulapplegate.com",
+  github: "https://github.com/theapplegates/astro-news",
   locale: "en-US",
   dir: "ltr",
   charset: "UTF-8",
@@ -92,6 +92,10 @@ export const Social: Link[] = [
   }, {
     href: "https://www.facebook.com",
     text: "Facebook",
+    icon: "facebook",
+  }, {
+    href: "https://paulapplegate.com/Paul_Applegate_0x498946A3_public.asc",
+    text: "fingerprint",
     icon: "facebook",
   }
 ]
