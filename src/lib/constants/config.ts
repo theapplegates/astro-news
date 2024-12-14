@@ -90,12 +90,8 @@ export const Social: Link[] = [
     text: "Twitter",
     icon: "newTwitter",
   }, {
-    href: "https://www.facebook.com",
-    text: "Facebook",
-    icon: "facebook",
-  }, {
-    href: "https://paulapplegate.com/Paul_Applegate_0x498946A3_public.asc",
-    text: "fingerprint",
-    icon: "facebook",
-  }
-]
+      href: "https://www.facebook.com",
+      text: "Facebook",
+      icon: "facebook",
+    }
+  ]
