@@ -9,8 +9,15 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: SITE.url,
-  base: SITE.basePath,
+  image: {
+    // Used for all `<Image />` and `<Picture />` components unless overridden
+    experimentalLayout: 'responsive',
+     },
+  experimental: {
+    responsiveImages: true,
+  },
+  site: "https://astro-news.paulapplegate.com",
+  base: "/",
   markdown: {
     remarkPlugins: [readingTime, modifiedTime],
   },
