@@ -4,7 +4,6 @@ import Sun from "~/assets/svgs/sun.astro";
 ---
 
 <label class="btn btn-ghost btn-circle swap swap-rotate" for="theme-controller">
-  <!-- This hidden checkbox controls the state -->
   <input
     type="checkbox"
     class="theme-controller"
@@ -13,17 +12,9 @@ import Sun from "~/assets/svgs/sun.astro";
     id="theme-controller"
   />
 
-  <!-- Sun icon -->
-  <span class="icon sun-icon" aria-hidden="true">
-    <Sun />
-  </span>
+  <Sun />
+  <Moon />
 
-  <!-- Moon icon -->
-  <span class="icon moon-icon" aria-hidden="true">
-    <Moon />
-  </span>
-
-  <!-- Accessible text for screen readers -->
   <span class="sr-only">Toggle theme</span>
 </label>
 

@@ -4,9 +4,10 @@ import BaseLayout from "~/layouts/base.astro";
 import ContentLayout from "~/layouts/content.astro";
 import ArticleHeader from "./_components/article-header.astro";
 import { getMeta } from "~/lib/utils/getMeta";
+import { articlesHandler } from "~/lib/handlers/articles";
 
 export const getStaticPaths = async () => {
-  const articles = await getCollection("articles");
+  const articles = articlesHandler.allArticles();
 
   return articles.map((article) => ({
     params: { id: article.id },

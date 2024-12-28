@@ -1,59 +1,14 @@
 ---
 import Github from "~/assets/svgs/github.astro";
 import Search01 from "~/assets/svgs/search-01.astro";
-import Menu from "~/assets/svgs/menu.astro";
-import { NAVIGATION_LINKS, OTHER_LINKS, SITE } from "~/lib/config";
+import MenuDropdown from "./menu-dropdown.astro";
+import { SITE } from "~/lib/config";
 import ThemeController from "../bases/theme-controller.astro";
 ---
 
 <div class="navbar bg-base-100 border-b">
   <div class="navbar-start lg:w-1/2">
-    <div class="dropdown">
-      <div role="button" class="btn btn-ghost btn-circle" aria-label="Menu">
-        <Menu />
-      </div>
-
-      <ul
-        class="menu dropdown-content z-50 bg-base-100 rounded-box w-56 shadow"
-      >
-        <li><a href="/" aria-label="Homepage">Home</a></li>
-        <li><a href="/articles" aria-label="Articles Page">Articles</a></li>
-
-        <li>
-          <details>
-            <summary>Categories</summary>
-            <ul>
-              {
-                NAVIGATION_LINKS.map(({ href, text, target }) => (
-                  <li>
-                    <a href={href} target={target ?? "_self"} aria-label={text}>
-                      {text}
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-          </details>
-        </li>
-
-        <li>
-          <details>
-            <summary>Other Pages</summary>
-            <ul>
-              {
-                OTHER_LINKS.map(({ href, text, target }) => (
-                  <li>
-                    <a href={href} target={target ?? "_self"} aria-label={text}>
-                      {text}
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-          </details>
-        </li>
-      </ul>
-    </div>
+    <MenuDropdown />
     <a class="text-xl px-2 text-nowrap lg:hidden" href="/">{SITE.title}</a>
   </div>
   <div class="navbar-center hidden lg:flex">

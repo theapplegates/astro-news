@@ -12,6 +12,7 @@ import { getEntry } from "astro:content";
 export const getStaticPaths = (async ({ paginate }) => {
   const allCategories = categoriesHandler.allCategories();
   const allArticles = articlesHandler.allArticles();
+
   return allCategories.flatMap((category) => {
     const filteredArticles = allArticles.filter(
       (article) => article.data.category.id === category.id
