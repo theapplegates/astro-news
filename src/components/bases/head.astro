@@ -8,15 +8,17 @@ import "~/assets/styles/globals.css";
 import { SITE } from "~/lib/config";
 import type { ArticleMeta, Meta } from "~/lib/types";
 
-type Props = ArticleMeta | Meta;
+type Props = {
+  meta: Meta | ArticleMeta;
+};
 
-const props = Astro.props;
+const { meta } = Astro.props;
 
 // Type guard to check if props is ArticleMeta
-const isArticleMeta = (props: Props): props is ArticleMeta =>
+const isArticleMeta = (props: Props["meta"]): props is ArticleMeta =>
   props.type === "article";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
-const OGImage = new URL(props.ogImage, Astro.url).href;
+const OGImage = new URL(meta.ogImage, Astro.url).href;
 ---
 
 <head>
@@ -46,40 +48,40 @@ const OGImage = new URL(props.ogImage, Astro.url).href;
   <link rel="canonical" href={canonicalURL} />
 
   <!-- Page Metadata -->
-  <title>{props.title}</title>
-  <meta name="title" content={props.metaTitle} />
-  <meta name="description" content={props.description} />
+  <title>{meta.title}</title>
+  <meta name="title" content={meta.metaTitle} />
+  <meta name="description" content={meta.description} />
 
   <!-- Open Graph / Facebook -->
-  <meta property="og:type" content={props.type} />
+  <meta property="og:type" content={meta.type} />
   <meta property="og:url" content={canonicalURL} />
-  <meta property="og:title" content={props.title} />
-  <meta property="og:description" content={props.description} />
+  <meta property="og:title" content={meta.metaTitle} />
+  <meta property="og:description" content={meta.description} />
   <meta property="og:image" content={OGImage} />
-  <meta property="og:image:alt" content={props.ogImageAlt} />
+  <meta property="og:image:alt" content={meta.ogImageAlt} />
 
   <!-- Twitter -->
   <meta property="twitter:site" content={Astro.site} />
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content={canonicalURL} />
-  <meta property="twitter:title" content={props.title} />
-  <meta property="twitter:description" content={props.description} />
+  <meta property="twitter:title" content={meta.metaTitle} />
+  <meta property="twitter:description" content={meta.description} />
   <meta property="twitter:image" content={OGImage} />
-  <meta property="twitter:image:alt" content={props.ogImageAlt} />
+  <meta property="twitter:image:alt" content={meta.ogImageAlt} />
 
   {
-    isArticleMeta(props) ? (
+    isArticleMeta(meta) ? (
       <>
         <meta
           property="article:published_time"
-          content={new Date(props.publishedTime).toISOString()}
+          content={new Date(meta.publishedTime).toISOString()}
         />
         <meta
           property="article:modified_time"
-          content={new Date(props.lastModified).toISOString()}
+          content={new Date(meta.lastModified).toISOString()}
         />
 
-        {props.authors.map((author) => (
+        {meta.authors.map((author) => (
           <>
             <meta property="author" content={author.name} />
             <meta

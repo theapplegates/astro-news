@@ -2,18 +2,15 @@
 import BaseLayout from "~/layouts/base.astro";
 import "@pagefind/default-ui/css/ui.css";
 import { getEntry } from "astro:content";
-import { getMeta } from "~/lib/utils/getMeta";
 
 const entry = await getEntry("views", "search");
 
 if (!entry) {
   return Astro.redirect("/404");
 }
-
-const meta = await getMeta(entry);
 ---
 
-<BaseLayout {...meta}>
+<BaseLayout entry={entry}>
   <div class="container py-4">
     <script is:inline src="/pagefind/pagefind-ui.js"></script>
 

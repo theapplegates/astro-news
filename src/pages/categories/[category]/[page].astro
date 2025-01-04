@@ -35,11 +35,9 @@ const entry = await getEntry("views", "categories");
 if (!entry) {
   return Astro.redirect("/404");
 }
-
-const meta = await getMeta(entry, params.category);
 ---
 
-<ListLayout header={params.category} meta={meta}>
+<ListLayout header={params.category} entry={entry}>
   <ul class="flex flex-col gap-2 flex-1">
     {
       articles.map((article) => (

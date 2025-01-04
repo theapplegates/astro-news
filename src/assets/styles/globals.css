@@ -32,6 +32,17 @@
   time {
     @apply text-sm;
   }
+
+  .prose {
+    pre {
+      code {
+        span,
+        p {
+          word-break: break-all;
+        }
+      }
+    }
+  }
 }
 
 @layer components {

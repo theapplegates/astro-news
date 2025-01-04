@@ -1,7 +1,6 @@
 ---
 import { getEntry } from "astro:content";
 import BaseLayout from "../layouts/base.astro";
-import { getMeta } from "~/lib/utils/getMeta";
 
 const entry = await getEntry("views", "error404");
 
@@ -10,11 +9,9 @@ if (!entry) {
 }
 
 const [HERO] = entry.data.blocks;
-
-const meta = await getMeta(entry);
 ---
 
-<BaseLayout {...meta}>
+<BaseLayout entry={entry}>
   <div class="container flex flex-col items-center justify-center py-20">
     <h1 class="text-4xl">{HERO.title}</h1>
     <p class="mt-2">{HERO.description}</p>

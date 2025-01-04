@@ -2,18 +2,17 @@
 import ContentLayout from "~/layouts/content.astro";
 import BaseLayout from "~/layouts/base.astro";
 import { getEntry, render } from "astro:content";
-import { getMeta } from "~/lib/utils/getMeta";
 
 const entry = await getEntry("views", "about");
 
 if (!entry) {
   return Astro.redirect("/404");
 }
-const meta = await getMeta(entry);
+
 const { Content } = await render(entry);
 ---
 
-<BaseLayout {...meta}>
+<BaseLayout entry={entry}>
   <ContentLayout>
     <Content />
   </ContentLayout>

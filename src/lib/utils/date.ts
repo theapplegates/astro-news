@@ -5,11 +5,14 @@ export const getDateDistance = (date: string) =>
     addSuffix: true,
   });
 
-export const formatDate= (date: string, formatDate: "long" | "short" = "long") => {
-  const parseDate =parseISO(date);
+export const formatDate = (
+  date: string,
+  formatDate: "long" | "short" = "long"
+) => {
+  const parseDate = parseISO(date);
   if (formatDate === "short") {
     return format(parseDate, "MMMM dd, yyyy zz");
-  } else {
-    return format(parseDate, "EEEE, MMMM d, yyyy h:mm a zz");
   }
-}
+
+  return format(parseDate, "EEEE, MMMM d, yyyy h:mm a zz");
+};
