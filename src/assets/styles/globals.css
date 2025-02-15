@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --font-sans: "Source Sans Pro";
-    --font-serif: "Source Serif 4 Variable";
+    --font-sans: "wotfardregular";
+    --font-serif: "wotfardregular";
 
     cursor: default;
   }
