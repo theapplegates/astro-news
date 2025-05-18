@@ -10,10 +10,8 @@
 
 @theme {
   /* Font Family */
-  --font-sans: "Source Sans Pro", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif: "Source Serif 4 Variable", ui-serif, Georgia, Cambria,
-    "Times New Roman", Times, serif;
+  --font-sans: "wotfard-regular-webfont";
+  --font-serif: "wotfard-regular-webfont";
 
   --breakpoint-2xl: initial;
 }
